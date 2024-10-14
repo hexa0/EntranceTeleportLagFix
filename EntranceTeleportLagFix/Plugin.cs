@@ -10,7 +10,7 @@ namespace EntranceTeleportLagFix
     {
         private const string PLUGIN_GUID = "com.hexa0.EntranceTeleportLagFix";
         private const string PLUGIN_NAME = "EntranceTeleportLagFix";
-        private const string PLUGIN_VERSION = "1.0.0.0";
+        private const string PLUGIN_VERSION = "1.1.0";
 
         private readonly Harmony harmony = new Harmony(PLUGIN_GUID);
 

@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using UnityEngine;
 
 namespace EntranceTeleportLagFix.Patches
 {
@@ -23,6 +24,9 @@ namespace EntranceTeleportLagFix.Patches
                     EntranceTeleportLagFixBase.Instance.mls.LogError($"Entrance with ID {__instance.entranceId} has failed to find an exitPoint after {data.attemptsToFindExit} attempts.");
                     __instance.enabled = false;
                     ___checkForEnemiesInterval = float.MaxValue; // in-case this gets re-enabled
+                    // forcibly destroy it because this keeps on re-enabling itself and causing MAJOR lag spikes
+                    Object.Destroy(__instance);
+                    Object.Destroy(data);
                     return;
                 }
 
